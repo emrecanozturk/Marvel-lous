@@ -12,6 +12,12 @@
 		D3F7271D251A226400741D5C /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F7271C251A226400741D5C /* Bundle+Extension.swift */; };
 		D3F72731251A2E9000741D5C /* CharactersDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F72730251A2E9000741D5C /* CharactersDataSource.swift */; };
 		D3F7273B251A433800741D5C /* CharacterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F7273A251A433800741D5C /* CharacterTableViewCell.swift */; };
+		D3F7274A251A4D4E00741D5C /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F72744251A4D4E00741D5C /* DetailPresenter.swift */; };
+		D3F7274B251A4D4E00741D5C /* DetailWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F72745251A4D4E00741D5C /* DetailWorker.swift */; };
+		D3F7274C251A4D4E00741D5C /* DetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F72746251A4D4E00741D5C /* DetailRouter.swift */; };
+		D3F7274D251A4D4E00741D5C /* DetailModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F72747251A4D4E00741D5C /* DetailModels.swift */; };
+		D3F7274E251A4D4E00741D5C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F72748251A4D4E00741D5C /* DetailViewController.swift */; };
+		D3F7274F251A4D4E00741D5C /* DetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F72749251A4D4E00741D5C /* DetailInteractor.swift */; };
 		D4988CD4250E493E00E4314C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4988CD3250E493E00E4314C /* AppDelegate.swift */; };
 		D4988CD6250E493E00E4314C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4988CD5250E493E00E4314C /* SceneDelegate.swift */; };
 		D4988CDB250E493E00E4314C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4988CD9250E493E00E4314C /* Main.storyboard */; };
@@ -36,6 +42,12 @@
 		D3F7271C251A226400741D5C /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
 		D3F72730251A2E9000741D5C /* CharactersDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersDataSource.swift; sourceTree = "<group>"; };
 		D3F7273A251A433800741D5C /* CharacterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTableViewCell.swift; sourceTree = "<group>"; };
+		D3F72744251A4D4E00741D5C /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
+		D3F72745251A4D4E00741D5C /* DetailWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailWorker.swift; sourceTree = "<group>"; };
+		D3F72746251A4D4E00741D5C /* DetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRouter.swift; sourceTree = "<group>"; };
+		D3F72747251A4D4E00741D5C /* DetailModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModels.swift; sourceTree = "<group>"; };
+		D3F72748251A4D4E00741D5C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		D3F72749251A4D4E00741D5C /* DetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInteractor.swift; sourceTree = "<group>"; };
 		D4988CD0250E493E00E4314C /* Marvel-lous.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Marvel-lous.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4988CD3250E493E00E4314C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4988CD5250E493E00E4314C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,12 +89,20 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		D3F7270F251A1FD100741D5C /* DataModels */ = {
+		D332E55A251ABCC700601E29 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				D4988D0F250E691700E4314C /* KeyGenerator.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		D3F72751251A4EE200741D5C /* ResponseModels */ = {
 			isa = PBXGroup;
 			children = (
 				D3F72710251A1FE700741D5C /* DataModels.swift */,
 			);
-			path = DataModels;
+			path = ResponseModels;
 			sourceTree = "<group>";
 		};
 		D4988CC7250E493E00E4314C = {
@@ -109,6 +129,7 @@
 				D4988CE7250E494E00E4314C /* Application */,
 				D4988CEA250E497700E4314C /* Sources */,
 				D4988D07250E567E00E4314C /* Networking */,
+				D332E55A251ABCC700601E29 /* Utils */,
 				D4988D0C250E66A800E4314C /* Extensions */,
 				D4988CE9250E496D00E4314C /* Storyboards */,
 				D4988CE8250E496700E4314C /* Scenes */,
@@ -170,6 +191,12 @@
 		D4988CFA250E52D800E4314C /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				D3F72748251A4D4E00741D5C /* DetailViewController.swift */,
+				D3F72749251A4D4E00741D5C /* DetailInteractor.swift */,
+				D3F72744251A4D4E00741D5C /* DetailPresenter.swift */,
+				D3F72746251A4D4E00741D5C /* DetailRouter.swift */,
+				D3F72745251A4D4E00741D5C /* DetailWorker.swift */,
+				D3F72747251A4D4E00741D5C /* DetailModels.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -177,10 +204,9 @@
 		D4988D07250E567E00E4314C /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				D3F7270F251A1FD100741D5C /* DataModels */,
+				D3F72751251A4EE200741D5C /* ResponseModels */,
 				D4988D08250E600300E4314C /* CharactersAPI.swift */,
 				D4988D0A250E658B00E4314C /* CharactersNetworkManager.swift */,
-				D4988D0F250E691700E4314C /* KeyGenerator.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -318,21 +344,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4988D06250E52F100E4314C /* CharactersInteractor.swift in Sources */,
+				D3F7274F251A4D4E00741D5C /* DetailInteractor.swift in Sources */,
 				D3F7271D251A226400741D5C /* Bundle+Extension.swift in Sources */,
 				D4988D05250E52F100E4314C /* CharactersViewController.swift in Sources */,
+				D3F7274C251A4D4E00741D5C /* DetailRouter.swift in Sources */,
 				D4988D09250E600300E4314C /* CharactersAPI.swift in Sources */,
 				D4988D0E250E66BA00E4314C /* Moya+PromiseKit.swift in Sources */,
+				D3F7274E251A4D4E00741D5C /* DetailViewController.swift in Sources */,
 				D4988CD4250E493E00E4314C /* AppDelegate.swift in Sources */,
 				D4988D03250E52F100E4314C /* CharactersRouter.swift in Sources */,
+				D3F7274D251A4D4E00741D5C /* DetailModels.swift in Sources */,
 				D3F7273B251A433800741D5C /* CharacterTableViewCell.swift in Sources */,
 				D4988CD6250E493E00E4314C /* SceneDelegate.swift in Sources */,
 				D3F72711251A1FE700741D5C /* DataModels.swift in Sources */,
+				D3F7274B251A4D4E00741D5C /* DetailWorker.swift in Sources */,
 				D4988D0B250E658B00E4314C /* CharactersNetworkManager.swift in Sources */,
 				D4988D01250E52F100E4314C /* CharactersPresenter.swift in Sources */,
 				D4988D10250E691700E4314C /* KeyGenerator.swift in Sources */,
 				D4988D02250E52F100E4314C /* CharactersWorker.swift in Sources */,
 				D4988D04250E52F100E4314C /* CharactersModels.swift in Sources */,
 				D3F72731251A2E9000741D5C /* CharactersDataSource.swift in Sources */,
+				D3F7274A251A4D4E00741D5C /* DetailPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -480,6 +512,7 @@
 				BASE_API_URL = "https://gateway.marvel.com";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Marvel-lous/Sources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -499,6 +532,7 @@
 				BASE_API_URL = "https://gateway.marvel.com";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Marvel-lous/Sources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

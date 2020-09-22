@@ -11,6 +11,7 @@ import UIKit
 protocol CharactersPresentationLogic {
     func presentCharacters(response: Characters.Select.Response)
     func presentError(error: Error)
+    func presentDetailPage(character: Result?)
 }
 
 class CharactersPresenter: CharactersPresentationLogic {
@@ -25,5 +26,9 @@ class CharactersPresenter: CharactersPresentationLogic {
     
     func presentError(error: Error) {
         viewController?.displayError(error: error)
+    }
+    
+    func presentDetailPage(character: Result?) {
+        viewController?.displayDetailpage(character: character)
     }
 }

@@ -12,6 +12,7 @@ import Moya
 protocol CharactersDisplayLogic: class {
     func displayCharacters(viewModel: Characters.Select.ViewModel)
     func displayError(error: Error)
+    func displayDetailpage(character: Result?)
 }
 
 class CharactersViewController: UITableViewController, CharactersDisplayLogic {
@@ -74,6 +75,10 @@ class CharactersViewController: UITableViewController, CharactersDisplayLogic {
         initSpinner()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        title = "Heros"
+    }
+    
     func initSpinner() {
         spinner = UIActivityIndicatorView(style: .medium)
         spinner?.frame = CGRect(x: 0.0, y: 0.0, width: tableView.bounds.width, height: 70)
@@ -94,6 +99,10 @@ class CharactersViewController: UITableViewController, CharactersDisplayLogic {
         tableView.reloadData()
     }
     
+    func displayDetailpage(character: Result?) {
+        router?.navigateToDetail(source: self, destination: DetailViewController.instantiate())
+    }
+    
     func displayError(error: Error) {
         
     }
@@ -108,5 +117,9 @@ extension CharactersViewController {
             tableView.tableFooterView = spinner
         }
         if indexPath.row == count - 1 { page += 1 }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        interactor?.sendToDetail(character: dataSource.results?[indexPath.row])
     }
 }

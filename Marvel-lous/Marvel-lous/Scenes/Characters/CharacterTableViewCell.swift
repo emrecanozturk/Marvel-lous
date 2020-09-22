@@ -21,12 +21,11 @@ class CharacterTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
     
     func setDatas(character: Result?) {
-        backgroundImageView.kf.setImage(with:character?.thumbnail?.url )
+        backgroundImageView.kf.setImage(with:character?.thumbnail?.url)
         nameLabel.text = character?.name
     }
 

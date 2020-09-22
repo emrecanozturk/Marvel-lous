@@ -21,7 +21,7 @@ public struct DataClass: Decodable {
 public struct Result: Decodable {
     public let id: Int?
     public let name: String?
-    public let resultDescription: String?
+    public let description: String?
     public let modified: String?
     public let thumbnail: Image?
     public let resourceURI: String?
@@ -61,7 +61,7 @@ public struct StoriesItem: Codable {
     public let type: String?
 }
 
-// MARK: - Thumbnail
+// MARK: - Image
 public struct Image: Decodable {
     
     let url: URL?
