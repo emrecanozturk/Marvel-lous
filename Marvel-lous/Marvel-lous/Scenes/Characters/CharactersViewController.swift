@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Moya
 
 protocol CharactersDisplayLogic: class {
     func displaySomething(viewModel: Characters.Something.ViewModel)
@@ -67,7 +68,7 @@ class CharactersViewController: UITableViewController, CharactersDisplayLogic {
   
     func doSomething() {
         let request = Characters.Something.Request()
-        interactor?.doSomething(request: request)
+        interactor?.getCharacters(request: request)
     }
   
     func displaySomething(viewModel: Characters.Something.ViewModel) {

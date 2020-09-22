@@ -13,7 +13,15 @@ enum Characters {
   
     enum Something {
         struct Request {}
-        struct Response {}
+        struct Response: Codable {
+            public let code: Int?
+            public let status: String?
+            public let copyright: String?
+            public let attributionText: String?
+            public let attributionHTML: String?
+            public let etag: String?
+            public let data: DataClass?
+        }
         struct ViewModel {}
     }
 }

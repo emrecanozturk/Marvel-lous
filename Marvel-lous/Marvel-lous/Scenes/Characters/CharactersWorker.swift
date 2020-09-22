@@ -9,6 +9,12 @@
 import UIKit
 
 class CharactersWorker {
-    func doSomeWork() {
+    
+    func getCharacters(limit: Int, offset: Int, with succes: @escaping responseSuccess, failure: @escaping responseFailure) {
+        CharactersNetworkManager().getCharacters(limit: limit, offset: offset, with: { (response) in
+            print(response)
+        }) { (error) in
+            print(error)
+        }
     }
 }

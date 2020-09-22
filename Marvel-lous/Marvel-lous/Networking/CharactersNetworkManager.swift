@@ -7,9 +7,10 @@
 //
 
 import Moya
+import PromiseKit
 
-typealias responseSuccess = (_ response: Any) -> ()
-typealias responseFailure = (_ response: Any) -> ()
+typealias responseSuccess = (_ response: Characters.Something.Response) -> ()
+typealias responseFailure = (_ response: Error) -> ()
 
 protocol Networkable {
     var provider: MoyaProvider<CharactersAPI> { get }
@@ -17,10 +18,19 @@ protocol Networkable {
 }
 
 struct CharactersNetworkManager: Networkable {
-    var provider: MoyaProvider<CharactersAPI>
+    
+    var provider = MoyaProvider<CharactersAPI>(plugins: [NetworkLoggerPlugin()])
     
     func getCharacters(limit: Int, offset: Int, with succes: @escaping responseSuccess, failure: @escaping responseFailure) {
-        
+        firstly {
+            provider.request(target: .getCharacters(limit: limit, offset: offset))
+        }.map {
+            try JSONDecoder().decode(Characters.Something.Response.self, from: $0.data)
+        }.done { data in
+            succes(data)
+        }.catch { error in
+            failure(error)
+        }
     }
     
     

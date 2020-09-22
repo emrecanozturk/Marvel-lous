@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B9CF0742151B54CAAE7E05AE /* Pods_Marvel_lous.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B28317B2535841D3F05B2AF /* Pods_Marvel_lous.framework */; };
+		D3F72711251A1FE700741D5C /* DataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F72710251A1FE700741D5C /* DataModels.swift */; };
 		D4988CD4250E493E00E4314C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4988CD3250E493E00E4314C /* AppDelegate.swift */; };
 		D4988CD6250E493E00E4314C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4988CD5250E493E00E4314C /* SceneDelegate.swift */; };
 		D4988CDB250E493E00E4314C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4988CD9250E493E00E4314C /* Main.storyboard */; };
@@ -21,11 +22,14 @@
 		D4988D06250E52F100E4314C /* CharactersInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4988D00250E52F100E4314C /* CharactersInteractor.swift */; };
 		D4988D09250E600300E4314C /* CharactersAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4988D08250E600300E4314C /* CharactersAPI.swift */; };
 		D4988D0B250E658B00E4314C /* CharactersNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4988D0A250E658B00E4314C /* CharactersNetworkManager.swift */; };
+		D4988D0E250E66BA00E4314C /* Moya+PromiseKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4988D0D250E66BA00E4314C /* Moya+PromiseKit.swift */; };
+		D4988D10250E691700E4314C /* KeyGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4988D0F250E691700E4314C /* KeyGenerator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3B28317B2535841D3F05B2AF /* Pods_Marvel_lous.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Marvel_lous.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C54C1CD4A3E4A9C56B83F66C /* Pods-Marvel-lous.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marvel-lous.debug.xcconfig"; path = "Target Support Files/Pods-Marvel-lous/Pods-Marvel-lous.debug.xcconfig"; sourceTree = "<group>"; };
+		D3F72710251A1FE700741D5C /* DataModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModels.swift; sourceTree = "<group>"; };
 		D4988CD0250E493E00E4314C /* Marvel-lous.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Marvel-lous.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4988CD3250E493E00E4314C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4988CD5250E493E00E4314C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +45,8 @@
 		D4988D00250E52F100E4314C /* CharactersInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersInteractor.swift; sourceTree = "<group>"; };
 		D4988D08250E600300E4314C /* CharactersAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CharactersAPI.swift; path = "Marvel-lous/CharactersAPI.swift"; sourceTree = SOURCE_ROOT; };
 		D4988D0A250E658B00E4314C /* CharactersNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersNetworkManager.swift; sourceTree = "<group>"; };
+		D4988D0D250E66BA00E4314C /* Moya+PromiseKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Moya+PromiseKit.swift"; sourceTree = "<group>"; };
+		D4988D0F250E691700E4314C /* KeyGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyGenerator.swift; sourceTree = "<group>"; };
 		F6C99C6ED6C465175DAC1DF9 /* Pods-Marvel-lous.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marvel-lous.release.xcconfig"; path = "Target Support Files/Pods-Marvel-lous/Pods-Marvel-lous.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -65,6 +71,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		D3F7270F251A1FD100741D5C /* DataModels */ = {
+			isa = PBXGroup;
+			children = (
+				D3F72710251A1FE700741D5C /* DataModels.swift */,
+			);
+			path = DataModels;
+			sourceTree = "<group>";
+		};
 		D4988CC7250E493E00E4314C = {
 			isa = PBXGroup;
 			children = (
@@ -86,9 +100,10 @@
 		D4988CD2250E493E00E4314C /* Marvel-lous */ = {
 			isa = PBXGroup;
 			children = (
-				D4988D07250E567E00E4314C /* Networking */,
 				D4988CE7250E494E00E4314C /* Application */,
 				D4988CEA250E497700E4314C /* Sources */,
+				D4988D07250E567E00E4314C /* Networking */,
+				D4988D0C250E66A800E4314C /* Extensions */,
 				D4988CE9250E496D00E4314C /* Storyboards */,
 				D4988CE8250E496700E4314C /* Scenes */,
 			);
@@ -154,10 +169,20 @@
 		D4988D07250E567E00E4314C /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				D3F7270F251A1FD100741D5C /* DataModels */,
 				D4988D08250E600300E4314C /* CharactersAPI.swift */,
 				D4988D0A250E658B00E4314C /* CharactersNetworkManager.swift */,
+				D4988D0F250E691700E4314C /* KeyGenerator.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		D4988D0C250E66A800E4314C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D4988D0D250E66BA00E4314C /* Moya+PromiseKit.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		E27B358815196F4825753693 /* Frameworks */ = {
@@ -286,11 +311,14 @@
 				D4988D06250E52F100E4314C /* CharactersInteractor.swift in Sources */,
 				D4988D05250E52F100E4314C /* CharactersViewController.swift in Sources */,
 				D4988D09250E600300E4314C /* CharactersAPI.swift in Sources */,
+				D4988D0E250E66BA00E4314C /* Moya+PromiseKit.swift in Sources */,
 				D4988CD4250E493E00E4314C /* AppDelegate.swift in Sources */,
 				D4988D03250E52F100E4314C /* CharactersRouter.swift in Sources */,
 				D4988CD6250E493E00E4314C /* SceneDelegate.swift in Sources */,
+				D3F72711251A1FE700741D5C /* DataModels.swift in Sources */,
 				D4988D0B250E658B00E4314C /* CharactersNetworkManager.swift in Sources */,
 				D4988D01250E52F100E4314C /* CharactersPresenter.swift in Sources */,
+				D4988D10250E691700E4314C /* KeyGenerator.swift in Sources */,
 				D4988D02250E52F100E4314C /* CharactersWorker.swift in Sources */,
 				D4988D04250E52F100E4314C /* CharactersModels.swift in Sources */,
 			);

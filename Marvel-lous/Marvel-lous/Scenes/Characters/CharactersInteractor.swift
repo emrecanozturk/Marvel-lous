@@ -9,7 +9,7 @@
 import UIKit
 
 protocol CharactersBusinessLogic {
-    func doSomething(request: Characters.Something.Request)
+    func getCharacters(request: Characters.Something.Request)
 }
 
 protocol CharactersDataStore {
@@ -23,11 +23,15 @@ class CharactersInteractor: CharactersBusinessLogic, CharactersDataStore {
   
     // MARK: Do something
   
-    func doSomething(request: Characters.Something.Request) {
+    func getCharacters(request: Characters.Something.Request) {
         worker = CharactersWorker()
-        worker?.doSomeWork()
+        worker?.getCharacters(limit: 2, offset: 0, with: { (success) in
+            print(success)
+        }, failure: { (error) in
+            print(error)
+        })
     
-        let response = Characters.Something.Response()
-        presenter?.presentSomething(response: response)
+//        let response = Characters.Something.Response(from: <#Decoder#>)
+//        presenter?.presentSomething(response: response)
     }
 }

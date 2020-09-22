@@ -14,12 +14,12 @@ enum CharactersAPI {
 
 extension CharactersAPI: TargetType {
     var baseURL: URL {
-        guard let url = URL(string: "developer.marvel.com/v1/public") else { fatalError() }
+        guard let url = URL(string: "https://gateway.marvel.com") else { fatalError() }
         return url
     }
     
     var path: String {
-        "/characters"
+        "/v1/public/characters"
     }
     
     var method: Method {
@@ -33,12 +33,17 @@ extension CharactersAPI: TargetType {
     var task: Task {
         switch self {
             case .getCharacters(let limit, let offset):
-                return .requestParameters(parameters: ["limit": limit, "offset": offset], encoding: URLEncoding.queryString)
+                return .requestParameters(parameters: ["ts": KeyGenerator.getTimeStamp(),
+                                                       "hash": KeyGenerator.getHash(),
+                                                       "apikey": KeyGenerator.getApiKey(),
+                                                       "limit": limit,
+                                                       "offset": offset], encoding: URLEncoding.queryString)
         }
     }
     
     var headers: [String : String]? {
-        ["Content-type": "application/json"]
+//        ["Content-type": "application/json"]
+        return nil
     }
     
     

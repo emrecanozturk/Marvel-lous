@@ -8,5 +8,7 @@ target 'Marvel-lous' do
   # Pods for Marvel-lous
   pod 'Moya', '~> 14.0'
   pod 'Kingfisher', '~> 5.0'
-
+  pod "PromiseKit", "~> 6.8"
+  pod 'CryptoSwift', '~> 1.0'
+  
 end
