@@ -17,8 +17,8 @@ class CharactersDataSource: NSObject, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CharacterCell", for: indexPath)
-        cell.textLabel?.text = results?[indexPath.row].name
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CharacterCell", for: indexPath) as? CharacterTableViewCell else { return UITableViewCell() }
+        cell.setDatas(character: results?[indexPath.row])
         return cell
     }
     

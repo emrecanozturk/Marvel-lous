@@ -16,7 +16,7 @@ enum Characters {
             let limit: Int!
             let offset: Int!
         }
-        struct Response: Codable {
+        struct Response: Decodable {
             let code: Int?
             let status: String?
             let copyright: String?
@@ -25,7 +25,7 @@ enum Characters {
             let etag: String?
             let data: DataClass?
         }
-        struct ViewModel: Codable {
+        struct ViewModel: Decodable {
             let characters: [Result]?
         }
     }

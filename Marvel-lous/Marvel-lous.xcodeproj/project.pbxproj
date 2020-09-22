@@ -11,6 +11,7 @@
 		D3F72711251A1FE700741D5C /* DataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F72710251A1FE700741D5C /* DataModels.swift */; };
 		D3F7271D251A226400741D5C /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F7271C251A226400741D5C /* Bundle+Extension.swift */; };
 		D3F72731251A2E9000741D5C /* CharactersDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F72730251A2E9000741D5C /* CharactersDataSource.swift */; };
+		D3F7273B251A433800741D5C /* CharacterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F7273A251A433800741D5C /* CharacterTableViewCell.swift */; };
 		D4988CD4250E493E00E4314C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4988CD3250E493E00E4314C /* AppDelegate.swift */; };
 		D4988CD6250E493E00E4314C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4988CD5250E493E00E4314C /* SceneDelegate.swift */; };
 		D4988CDB250E493E00E4314C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4988CD9250E493E00E4314C /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 		D3F72710251A1FE700741D5C /* DataModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModels.swift; sourceTree = "<group>"; };
 		D3F7271C251A226400741D5C /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
 		D3F72730251A2E9000741D5C /* CharactersDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersDataSource.swift; sourceTree = "<group>"; };
+		D3F7273A251A433800741D5C /* CharacterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTableViewCell.swift; sourceTree = "<group>"; };
 		D4988CD0250E493E00E4314C /* Marvel-lous.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Marvel-lous.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4988CD3250E493E00E4314C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4988CD5250E493E00E4314C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				D4988CFC250E52F100E4314C /* CharactersWorker.swift */,
 				D4988CFE250E52F100E4314C /* CharactersModels.swift */,
 				D3F72730251A2E9000741D5C /* CharactersDataSource.swift */,
+				D3F7273A251A433800741D5C /* CharacterTableViewCell.swift */,
 			);
 			path = Characters;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 				D4988D0E250E66BA00E4314C /* Moya+PromiseKit.swift in Sources */,
 				D4988CD4250E493E00E4314C /* AppDelegate.swift in Sources */,
 				D4988D03250E52F100E4314C /* CharactersRouter.swift in Sources */,
+				D3F7273B251A433800741D5C /* CharacterTableViewCell.swift in Sources */,
 				D4988CD6250E493E00E4314C /* SceneDelegate.swift in Sources */,
 				D3F72711251A1FE700741D5C /* DataModels.swift in Sources */,
 				D4988D0B250E658B00E4314C /* CharactersNetworkManager.swift in Sources */,

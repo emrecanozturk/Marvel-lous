@@ -9,7 +9,7 @@
 import Foundation
 
 // MARK: - DataClass
-public struct DataClass: Codable {
+public struct DataClass: Decodable {
     public let offset: Int?
     public let limit: Int?
     public let total: Int?
@@ -18,12 +18,12 @@ public struct DataClass: Codable {
 }
 
 // MARK: - Result
-public struct Result: Codable {
+public struct Result: Decodable {
     public let id: Int?
     public let name: String?
     public let resultDescription: String?
     public let modified: String?
-    public let thumbnail: Thumbnail?
+    public let thumbnail: Image?
     public let resourceURI: String?
     public let comics: Comics?
     public let series: Comics?
@@ -62,9 +62,25 @@ public struct StoriesItem: Codable {
 }
 
 // MARK: - Thumbnail
-public struct Thumbnail: Codable {
-    public let path: String?
-    public let thumbnailExtension: String?
+public struct Image: Decodable {
+    
+    let url: URL?
+    
+    init(_ url: URL?) {
+        self.url = url
+    }
+    
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let path = try container.decode(String.self, forKey: .path)
+        let fileExtension = try container.decode(String.self, forKey: .fileExtension)
+        self.url = URL(string: "\(path).\(fileExtension)")
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case path
+        case fileExtension = "extension"
+    }
 }
 
 // MARK: - URLElement
