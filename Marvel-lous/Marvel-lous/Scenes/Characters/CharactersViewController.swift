@@ -19,7 +19,11 @@ class CharactersViewController: UITableViewController, CharactersDisplayLogic {
     var router: (NSObjectProtocol & CharactersRoutingLogic & CharactersDataPassing)?
     
     let dataSource = CharactersDataSource()
-    private var page: Int = 0
+    private var page: Int = 0 {
+        willSet {
+            getCharacters(page: newValue)
+        }
+    }
     private let limit: Int = 30
 
     // MARK: Object lifecycle
@@ -76,11 +80,20 @@ class CharactersViewController: UITableViewController, CharactersDisplayLogic {
     }
   
     func displayCharacters(viewModel: Characters.Select.ViewModel) {
-        dataSource.results = viewModel.characters
+        guard let characters = viewModel.characters else { print("No characters"); return }
+        dataSource.results?.append(contentsOf: characters)
         tableView.reloadData()
     }
     
     func displayError(error: Error) {
         
+    }
+}
+
+
+extension CharactersViewController {
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard let count = dataSource.results?.count else { fatalError("Data source count reading error") }
+        if indexPath.row == count - 1 { page += 1 }
     }
 }

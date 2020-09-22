@@ -19,7 +19,7 @@ protocol Networkable {
 
 struct CharactersNetworkManager: Networkable {
     
-    var provider = MoyaProvider<CharactersAPI>(plugins: [NetworkLoggerPlugin()])
+    var provider = MoyaProvider<CharactersAPI>()
     
     func getCharacters(limit: Int, offset: Int, with succes: @escaping responseSuccess, failure: @escaping responseFailure) {
         firstly {
