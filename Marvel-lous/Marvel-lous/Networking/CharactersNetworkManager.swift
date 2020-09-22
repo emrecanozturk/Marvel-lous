@@ -9,7 +9,7 @@
 import Moya
 import PromiseKit
 
-typealias responseSuccess = (_ response: Characters.Something.Response) -> ()
+typealias responseSuccess = (_ response: Characters.Select.Response) -> ()
 typealias responseFailure = (_ response: Error) -> ()
 
 protocol Networkable {
@@ -25,13 +25,12 @@ struct CharactersNetworkManager: Networkable {
         firstly {
             provider.request(target: .getCharacters(limit: limit, offset: offset))
         }.map {
-            try JSONDecoder().decode(Characters.Something.Response.self, from: $0.data)
+            try JSONDecoder().decode(Characters.Select.Response.self, from: $0.data)
         }.done { data in
             succes(data)
         }.catch { error in
             failure(error)
         }
     }
-    
     
 }

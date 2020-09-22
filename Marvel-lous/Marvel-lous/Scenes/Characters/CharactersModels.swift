@@ -11,17 +11,22 @@ import UIKit
 enum Characters {
     // MARK: Use cases
   
-    enum Something {
-        struct Request {}
-        struct Response: Codable {
-            public let code: Int?
-            public let status: String?
-            public let copyright: String?
-            public let attributionText: String?
-            public let attributionHTML: String?
-            public let etag: String?
-            public let data: DataClass?
+    enum Select {
+        struct Request {
+            let limit: Int!
+            let offset: Int!
         }
-        struct ViewModel {}
+        struct Response: Codable {
+            let code: Int?
+            let status: String?
+            let copyright: String?
+            let attributionText: String?
+            let attributionHTML: String?
+            let etag: String?
+            let data: DataClass?
+        }
+        struct ViewModel: Codable {
+            let characters: [Result]?
+        }
     }
 }

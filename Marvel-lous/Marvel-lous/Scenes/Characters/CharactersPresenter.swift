@@ -9,16 +9,21 @@
 import UIKit
 
 protocol CharactersPresentationLogic {
-    func presentSomething(response: Characters.Something.Response)
+    func presentCharacters(response: Characters.Select.Response)
+    func presentError(error: Error)
 }
 
 class CharactersPresenter: CharactersPresentationLogic {
     weak var viewController: CharactersDisplayLogic?
   
-    // MARK: Do something
+    // MARK: Present Characters
   
-    func presentSomething(response: Characters.Something.Response) {
-        let viewModel = Characters.Something.ViewModel()
-        viewController?.displaySomething(viewModel: viewModel)
+    func presentCharacters(response: Characters.Select.Response) {
+        let viewModel = Characters.Select.ViewModel(characters: response.data?.results)
+        viewController?.displayCharacters(viewModel: viewModel)
+    }
+    
+    func presentError(error: Error) {
+        viewController?.displayError(error: error)
     }
 }

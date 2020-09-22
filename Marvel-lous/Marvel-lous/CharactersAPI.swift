@@ -14,8 +14,8 @@ enum CharactersAPI {
 
 extension CharactersAPI: TargetType {
     var baseURL: URL {
-        guard let url = URL(string: "https://gateway.marvel.com") else { fatalError() }
-        return url
+        guard let apiURL = Bundle.infoPlistValue(forKey: "BaseAPIUrl") else { fatalError("Base URL API error") }
+        return apiURL
     }
     
     var path: String {
@@ -42,9 +42,11 @@ extension CharactersAPI: TargetType {
     }
     
     var headers: [String : String]? {
-//        ["Content-type": "application/json"]
-        return nil
+        ["Content-type": "application/json"]
     }
     
+    var validationType: ValidationType  {
+        .successAndRedirectCodes
+    }
     
 }

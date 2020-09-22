@@ -9,29 +9,27 @@
 import UIKit
 
 protocol CharactersBusinessLogic {
-    func getCharacters(request: Characters.Something.Request)
+    func getCharacters(request: Characters.Select.Request)
 }
 
 protocol CharactersDataStore {
-    //var name: String { get set }
+//    var characters: [Result]? { get set }
 }
 
 class CharactersInteractor: CharactersBusinessLogic, CharactersDataStore {
+    
     var presenter: CharactersPresentationLogic?
     var worker: CharactersWorker?
-    //var name: String = ""
   
-    // MARK: Do something
+    // MARK: Get Characters
   
-    func getCharacters(request: Characters.Something.Request) {
+    func getCharacters(request: Characters.Select.Request) {
         worker = CharactersWorker()
-        worker?.getCharacters(limit: 2, offset: 0, with: { (success) in
-            print(success)
+        worker?.getCharacters(limit: request.limit, offset: request.offset, with: { (success) in
+            self.presenter?.presentCharacters(response: success)
         }, failure: { (error) in
-            print(error)
+            self.presenter?.presentError(error: error)
         })
-    
-//        let response = Characters.Something.Response(from: <#Decoder#>)
-//        presenter?.presentSomething(response: response)
     }
+    
 }

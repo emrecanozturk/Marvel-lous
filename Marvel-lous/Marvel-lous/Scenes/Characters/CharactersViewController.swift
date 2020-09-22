@@ -10,12 +10,17 @@ import UIKit
 import Moya
 
 protocol CharactersDisplayLogic: class {
-    func displaySomething(viewModel: Characters.Something.ViewModel)
+    func displayCharacters(viewModel: Characters.Select.ViewModel)
+    func displayError(error: Error)
 }
 
 class CharactersViewController: UITableViewController, CharactersDisplayLogic {
     var interactor: CharactersBusinessLogic?
     var router: (NSObjectProtocol & CharactersRoutingLogic & CharactersDataPassing)?
+    
+    let dataSource = CharactersDataSource()
+    private var page: Int = 0
+    private let limit: Int = 30
 
     // MARK: Object lifecycle
   
@@ -59,19 +64,23 @@ class CharactersViewController: UITableViewController, CharactersDisplayLogic {
   
     override func viewDidLoad() {
         super.viewDidLoad()
-        doSomething()
+        tableView.dataSource = dataSource
+        getCharacters(page: page)
     }
   
-    // MARK: Do something
+    // MARK: Get Characters
   
-    //@IBOutlet weak var nameTextField: UITextField!
-  
-    func doSomething() {
-        let request = Characters.Something.Request()
+    func getCharacters(page: Int) {
+        let request = Characters.Select.Request(limit: limit, offset: limit*page)
         interactor?.getCharacters(request: request)
     }
   
-    func displaySomething(viewModel: Characters.Something.ViewModel) {
-        //nameTextField.text = viewModel.name
+    func displayCharacters(viewModel: Characters.Select.ViewModel) {
+        dataSource.results = viewModel.characters
+        tableView.reloadData()
+    }
+    
+    func displayError(error: Error) {
+        
     }
 }
