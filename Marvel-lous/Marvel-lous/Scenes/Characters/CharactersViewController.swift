@@ -25,6 +25,7 @@ class CharactersViewController: UITableViewController, CharactersDisplayLogic {
         }
     }
     private let limit: Int = 30
+    private var spinner: UIActivityIndicatorView?
 
     // MARK: Object lifecycle
   
@@ -70,6 +71,12 @@ class CharactersViewController: UITableViewController, CharactersDisplayLogic {
         super.viewDidLoad()
         tableView.dataSource = dataSource
         getCharacters(page: page)
+        initSpinner()
+    }
+    
+    func initSpinner() {
+        spinner = UIActivityIndicatorView(style: .medium)
+        spinner?.frame = CGRect(x: 0.0, y: 0.0, width: tableView.bounds.width, height: 70)
     }
   
     // MARK: Get Characters
@@ -81,6 +88,8 @@ class CharactersViewController: UITableViewController, CharactersDisplayLogic {
   
     func displayCharacters(viewModel: Characters.Select.ViewModel) {
         guard let characters = viewModel.characters else { print("No characters"); return }
+        spinner?.stopAnimating()
+        tableView.tableFooterView = nil
         dataSource.results?.append(contentsOf: characters)
         tableView.reloadData()
     }
@@ -94,6 +103,10 @@ class CharactersViewController: UITableViewController, CharactersDisplayLogic {
 extension CharactersViewController {
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard let count = dataSource.results?.count else { fatalError("Data source count reading error") }
+        if indexPath.section ==  tableView.numberOfSections - 1 && indexPath.row == tableView.numberOfRows(inSection: tableView.numberOfSections - 1) - 1 && count > 0 {
+            spinner?.startAnimating()
+            tableView.tableFooterView = spinner
+        }
         if indexPath.row == count - 1 { page += 1 }
     }
 }
