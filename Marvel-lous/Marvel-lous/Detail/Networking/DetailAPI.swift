@@ -35,7 +35,7 @@ extension DetailAPI: TargetType {
     
     var task: Task {
         switch self {
-            case .getComics(let id, let limit):
+            case .getComics(_, let limit):
                 return .requestParameters(parameters: ["ts": KeyGenerator.getTimeStamp(),
                                                        "hash": KeyGenerator.getHash(),
                                                        "apikey": KeyGenerator.getApiKey(),
