@@ -10,7 +10,7 @@ import UIKit
 
 class CharactersWorker {
     
-    func getCharacters(limit: Int, offset: Int, with succes: @escaping responseSuccess, failure: @escaping responseFailure) {
+    func getCharacters(limit: Int, offset: Int, with succes: @escaping charactersResponseSuccess, failure: @escaping responseFailure) {
         CharactersNetworkManager().getCharacters(limit: limit, offset: offset, with: { (response) in
             succes(response)
         }) { (error) in

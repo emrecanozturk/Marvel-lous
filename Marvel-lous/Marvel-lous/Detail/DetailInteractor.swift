@@ -13,26 +13,24 @@
 import UIKit
 
 protocol DetailBusinessLogic {
-    func doSomething(request: Detail.Something.Request)
+    func doSomething(request: Detail.Select.Request)
 }
 
 protocol DetailDataStore {
-    var character: Result? { get set }
+    var character: CharacterResult? { get set }
 }
 
 class DetailInteractor: DetailBusinessLogic, DetailDataStore {
     var presenter: DetailPresentationLogic?
     var worker: DetailWorker?
     
-    var character: Result?
+    var character: CharacterResult?
   
     // MARK: Do something
   
-    func doSomething(request: Detail.Something.Request) {
+    func doSomething(request: Detail.Select.Request) {
         worker = DetailWorker()
         worker?.doSomeWork()
-    
-        let response = Detail.Something.Response()
-        presenter?.presentSomething(response: response)
+
     }
 }

@@ -15,9 +15,17 @@ import UIKit
 enum Detail {
     // MARK: Use cases
   
-    enum Something {
+    enum Select {
         struct Request {}
-        struct Response {}
+        struct Response: Decodable {
+            let code: Int?
+            let status: String?
+            let copyright: String?
+            let attributionText: String?
+            let attributionHTML: String?
+            let etag: String?
+            let result: DetailData?
+        }
         struct ViewModel {}
     }
 }

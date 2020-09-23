@@ -24,7 +24,7 @@ class CharacterTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setDatas(character: Result?) {
+    func setDatas(character: CharacterResult?) {
         backgroundImageView.kf.setImage(with:character?.thumbnail?.url)
         nameLabel.text = character?.name
     }

@@ -9,16 +9,16 @@
 import Foundation
 
 // MARK: - DataClass
-public struct DataClass: Decodable {
+public struct CharacterData: Decodable {
     public let offset: Int?
     public let limit: Int?
     public let total: Int?
     public let count: Int?
-    public let results: [Result]?
+    public let results: [CharacterResult]?
 }
 
 // MARK: - Result
-public struct Result: Decodable {
+public struct CharacterResult: Decodable {
     public let id: Int?
     public let name: String?
     public let description: String?

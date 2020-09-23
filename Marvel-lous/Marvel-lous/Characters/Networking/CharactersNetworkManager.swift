@@ -9,19 +9,19 @@
 import Moya
 import PromiseKit
 
-typealias responseSuccess = (_ response: Characters.Select.Response) -> ()
+typealias charactersResponseSuccess = (_ response: Characters.Select.Response) -> ()
 typealias responseFailure = (_ response: Error) -> ()
 
-protocol Networkable {
+protocol CharactersNetworkable {
     var provider: MoyaProvider<CharactersAPI> { get }
-    func getCharacters(limit: Int, offset: Int, with succes: @escaping responseSuccess, failure: @escaping responseFailure)
+    func getCharacters(limit: Int, offset: Int, with succes: @escaping charactersResponseSuccess, failure: @escaping responseFailure)
 }
 
-struct CharactersNetworkManager: Networkable {
+struct CharactersNetworkManager: CharactersNetworkable {
     
     var provider = MoyaProvider<CharactersAPI>(plugins: [NetworkLoggerPlugin()])
     
-    func getCharacters(limit: Int, offset: Int, with succes: @escaping responseSuccess, failure: @escaping responseFailure) {
+    func getCharacters(limit: Int, offset: Int, with succes: @escaping charactersResponseSuccess, failure: @escaping responseFailure) {
         firstly {
             provider.request(target: .getCharacters(limit: limit, offset: offset))
         }.map {

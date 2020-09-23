@@ -10,11 +10,11 @@ import UIKit
 
 protocol CharactersBusinessLogic {
     func getCharacters(request: Characters.Select.Request)
-    func sendToDetail(character: Result?)
+    func sendToDetail(character: CharacterResult?)
 }
 
 protocol CharactersDataStore {
-    var character: Result? { get set }
+    var character: CharacterResult? { get set }
 }
 
 class CharactersInteractor: CharactersBusinessLogic, CharactersDataStore {
@@ -22,7 +22,7 @@ class CharactersInteractor: CharactersBusinessLogic, CharactersDataStore {
     var presenter: CharactersPresentationLogic?
     var worker: CharactersWorker?
     
-    var character: Result?
+    var character: CharacterResult?
   
     // MARK: Get Characters
   
@@ -35,7 +35,7 @@ class CharactersInteractor: CharactersBusinessLogic, CharactersDataStore {
         })
     }
     
-    func sendToDetail(character: Result?) {
+    func sendToDetail(character: CharacterResult?) {
         self.character = character
         presenter?.presentDetailPage(character: character)
     }

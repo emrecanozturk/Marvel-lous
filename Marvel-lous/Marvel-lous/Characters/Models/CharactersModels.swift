@@ -23,10 +23,10 @@ enum Characters {
             let attributionText: String?
             let attributionHTML: String?
             let etag: String?
-            let data: DataClass?
+            let data: CharacterData?
         }
         struct ViewModel: Decodable {
-            let characters: [Result]?
+            let characters: [CharacterResult]?
         }
     }
 }

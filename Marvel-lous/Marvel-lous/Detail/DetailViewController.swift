@@ -15,7 +15,7 @@ import MXParallaxHeader
 import Kingfisher
 
 protocol DetailDisplayLogic: class {
-    func displaySomething(viewModel: Detail.Something.ViewModel)
+    func displaySomething(viewModel: Detail.Select.ViewModel)
 }
 
 class DetailViewController: UIViewController, DetailDisplayLogic {
@@ -88,14 +88,10 @@ class DetailViewController: UIViewController, DetailDisplayLogic {
         if let name = router?.dataStore?.character?.name, name != "" {
             nameLabel.text = name
             title = name
-        } else {
-            nameLabel.text = "No content"
         }
         
         if let description = router?.dataStore?.character?.description, description != "" {
             descriptionLabel.text = description
-        } else {
-            descriptionLabel.text = "No content"
         }
         
         headerImageView.kf.setImage(with: router?.dataStore?.character?.thumbnail?.url, options: [.processor(DefaultImageProcessor.default)])
@@ -108,7 +104,7 @@ class DetailViewController: UIViewController, DetailDisplayLogic {
         scrollView.parallaxHeader.minimumHeight = 50
     }
   
-    func displaySomething(viewModel: Detail.Something.ViewModel) {
+    func displaySomething(viewModel: Detail.Select.ViewModel) {
         //nameTextField.text = viewModel.name
     }
 }

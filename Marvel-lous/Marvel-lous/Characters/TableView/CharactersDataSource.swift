@@ -10,7 +10,7 @@ import UIKit
 
 class CharactersDataSource: NSObject, UITableViewDataSource {
     
-    var results: [Result]? = []
+    var results: [CharacterResult]? = []
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return results?.count ?? 0

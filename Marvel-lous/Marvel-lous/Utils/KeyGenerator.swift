@@ -27,4 +27,12 @@ struct KeyGenerator {
     static func getHash() -> String {
         return "\(KeyGenerator.timestamp)\(KeyGenerator.privateKey)\(KeyGenerator.publicKey)".md5()
     }
+    
+    static func getCurrentData() -> String {
+        let date = Date(timeIntervalSince1970: Date().timeIntervalSince1970)
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = NSLocale.current
+        dateFormatter.dateFormat = "YYYY-MM-DD"
+        return dateFormatter.string(from: date)
+    }
 }

@@ -12,7 +12,7 @@ import Moya
 protocol CharactersDisplayLogic: class {
     func displayCharacters(viewModel: Characters.Select.ViewModel)
     func displayError(error: Error)
-    func displayDetailpage(character: Result?)
+    func displayDetailpage(character: CharacterResult?)
 }
 
 class CharactersViewController: UITableViewController, CharactersDisplayLogic {
@@ -99,7 +99,7 @@ class CharactersViewController: UITableViewController, CharactersDisplayLogic {
         tableView.reloadData()
     }
     
-    func displayDetailpage(character: Result?) {
+    func displayDetailpage(character: CharacterResult?) {
         router?.navigateToDetail(source: self, destination: DetailViewController.instantiate())
     }
     
