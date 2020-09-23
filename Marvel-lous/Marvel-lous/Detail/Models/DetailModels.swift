@@ -16,7 +16,9 @@ enum Detail {
     // MARK: Use cases
   
     enum Select {
-        struct Request {}
+        struct Request {
+            let id: Int?
+        }
         struct Response: Decodable {
             let code: Int?
             let status: String?
@@ -24,8 +26,10 @@ enum Detail {
             let attributionText: String?
             let attributionHTML: String?
             let etag: String?
-            let result: DetailData?
+            var data: DetailData?
         }
-        struct ViewModel {}
+        struct ViewModel {
+            var results: [ComicResult]?
+        }
     }
 }

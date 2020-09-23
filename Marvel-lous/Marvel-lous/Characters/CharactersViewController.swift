@@ -19,7 +19,7 @@ class CharactersViewController: UITableViewController, CharactersDisplayLogic {
     var interactor: CharactersBusinessLogic?
     var router: (NSObjectProtocol & CharactersRoutingLogic & CharactersDataPassing)?
     
-    let dataSource = CharactersDataSource()
+    private let dataSource = CharactersDataSource()
     private var page: Int = 0 {
         willSet {
             getCharacters(page: newValue)
@@ -104,7 +104,7 @@ class CharactersViewController: UITableViewController, CharactersDisplayLogic {
     }
     
     func displayError(error: Error) {
-        
+        showAlertView(titleString: "Ops", messageString: error.localizedDescription)
     }
 }
 

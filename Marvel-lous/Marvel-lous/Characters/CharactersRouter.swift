@@ -41,11 +41,9 @@ class CharactersRouter: NSObject, CharactersRoutingLogic, CharactersDataPassing 
     // MARK: Navigation
 
     func navigateToDetail(source: CharactersViewController, destination: DetailViewController) {
-        
         var destinationDS = destination.router!.dataStore!
         passDataToDetail(source: dataStore!, destination: &destinationDS)
         source.navigationController?.show(destination, sender: nil)
-        
     }
 
     // MARK: Passing data

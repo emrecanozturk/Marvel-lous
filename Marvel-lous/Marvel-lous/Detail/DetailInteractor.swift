@@ -13,7 +13,7 @@
 import UIKit
 
 protocol DetailBusinessLogic {
-    func doSomething(request: Detail.Select.Request)
+    func getComics(request: Detail.Select.Request)
 }
 
 protocol DetailDataStore {
@@ -26,11 +26,15 @@ class DetailInteractor: DetailBusinessLogic, DetailDataStore {
     
     var character: CharacterResult?
   
-    // MARK: Do something
+    // MARK: getComics
   
-    func doSomething(request: Detail.Select.Request) {
+    func getComics(request: Detail.Select.Request) {
         worker = DetailWorker()
-        worker?.doSomeWork()
-
+        worker?.getComics(id: request.id, with: { [self] success in
+            presenter?.presentComics(response: success)
+        }, failure: { [self] error in
+            presenter?.presentError(error: error)
+        })
     }
+    
 }

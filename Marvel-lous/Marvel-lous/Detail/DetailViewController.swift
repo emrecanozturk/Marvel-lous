@@ -15,7 +15,8 @@ import MXParallaxHeader
 import Kingfisher
 
 protocol DetailDisplayLogic: class {
-    func displaySomething(viewModel: Detail.Select.ViewModel)
+    func presentComics(viewModel: Detail.Select.ViewModel)
+    func displayError(error: Error)
 }
 
 class DetailViewController: UIViewController, DetailDisplayLogic {
@@ -26,7 +27,10 @@ class DetailViewController: UIViewController, DetailDisplayLogic {
     @IBOutlet weak var headerImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var collectionView: UICollectionView!
 
+    private let dataSource = ComicssDataSource()
+    
     // MARK: Object lifecycle
   
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -73,6 +77,8 @@ class DetailViewController: UIViewController, DetailDisplayLogic {
   
     override func viewDidLoad() {
         super.viewDidLoad()
+        collectionView.dataSource = dataSource
+        getComics()
         setDatas()
     }
     
@@ -80,9 +86,12 @@ class DetailViewController: UIViewController, DetailDisplayLogic {
         initUI()
     }
   
-    // MARK: Do something
+    // MARK: Get Comics
   
-    //@IBOutlet weak var nameTextField: UITextField!
+    func getComics() {
+        let request = Detail.Select.Request(id: router?.dataStore?.character?.id)
+        interactor?.getComics(request: request)
+    }
   
     func setDatas() {
         if let name = router?.dataStore?.character?.name, name != "" {
@@ -104,7 +113,19 @@ class DetailViewController: UIViewController, DetailDisplayLogic {
         scrollView.parallaxHeader.minimumHeight = 50
     }
   
-    func displaySomething(viewModel: Detail.Select.ViewModel) {
-        //nameTextField.text = viewModel.name
+    func presentComics(viewModel: Detail.Select.ViewModel) {
+        guard let comics = viewModel.results else { print("No comics"); return }
+        dataSource.results?.append(contentsOf: comics)
+        collectionView.reloadData()
+    }
+    
+    func displayError(error: Error)  {
+        showAlertView(titleString: "Ops", messageString: error.localizedDescription)
+    }
+}
+
+extension  DetailViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        CGSize(width: 128.0, height: 200.0)
     }
 }

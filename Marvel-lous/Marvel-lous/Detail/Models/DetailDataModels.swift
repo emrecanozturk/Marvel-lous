@@ -14,11 +14,11 @@ public struct DetailData: Decodable {
     let limit: Int?
     let total: Int?
     let count: Int?
-    let results: [DetailResult]?
+    var results: [ComicResult]?
 }
 //
 // MARK: - Result
-public struct DetailResult: Decodable {
+public struct ComicResult: Decodable {
     let title: String?
     let thumbnail: Image?
 }

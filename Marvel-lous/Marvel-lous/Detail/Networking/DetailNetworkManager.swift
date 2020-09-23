@@ -18,7 +18,7 @@ protocol DetailNetworkable {
 
 struct DetailNetworkManager: DetailNetworkable {
     
-    var provider = MoyaProvider<DetailAPI>(plugins: [NetworkLoggerPlugin()])
+    var provider = MoyaProvider<DetailAPI>()
     
     func getComics(id: Int, limit: Int, with succes: @escaping detailsResponseSuccess, failure: @escaping responseFailure) {
         firstly {

@@ -13,16 +13,30 @@
 import UIKit
 
 protocol DetailPresentationLogic {
-    func presentSomething(response: Detail.Select.Response)
+    func presentComics(response: Detail.Select.Response)
+    func presentError(error: Error)
 }
 
 class DetailPresenter: DetailPresentationLogic {
+    
     weak var viewController: DetailDisplayLogic?
   
-    // MARK: Do something
+    // MARK: Present Comics
   
-    func presentSomething(response: Detail.Select.Response) {
-        let viewModel = Detail.Select.ViewModel()
-        viewController?.displaySomething(viewModel: viewModel)
+    func presentComics(response: Detail.Select.Response) {
+        var viewModel = Detail.Select.ViewModel(results: response.data?.results)
+        viewModel.results?.reverse()
+        
+        if let count = viewModel.results?.count, let results = viewModel.results, count >= 10  {
+            var comics: [ComicResult]?
+            comics?.append(contentsOf: results[0...9])
+            viewModel.results?.removeAll()
+            viewModel.results = comics
+        }
+        viewController?.presentComics(viewModel: viewModel)
+    }
+    
+    func presentError(error: Error) {
+        viewController?.displayError(error: error)
     }
 }

@@ -13,6 +13,12 @@
 import UIKit
 
 class DetailWorker {
-    func doSomeWork() {
+    func getComics(id: Int?, with succes: @escaping detailsResponseSuccess, failure: @escaping responseFailure) {
+        guard let id = id else { fatalError("No id for comics")}
+        DetailNetworkManager().getComics(id: id, limit: 100, with: { (response) in
+            succes(response)
+        }) { (error) in
+            failure(error)
+        }
     }
 }

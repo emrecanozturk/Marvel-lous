@@ -29,10 +29,13 @@ struct KeyGenerator {
     }
     
     static func getCurrentData() -> String {
-        let date = Date(timeIntervalSince1970: Date().timeIntervalSince1970)
-        let dateFormatter = DateFormatter()
-        dateFormatter.locale = NSLocale.current
-        dateFormatter.dateFormat = "YYYY-MM-DD"
-        return dateFormatter.string(from: date)
+        
+        let date = Date()
+
+        let components = date.get(.day, .month, .year)
+        if let day = components.day, let month = components.month, let year = components.year {
+            return "\(year)-\(month)-\(day)"
+        }
+        return ""
     }
 }

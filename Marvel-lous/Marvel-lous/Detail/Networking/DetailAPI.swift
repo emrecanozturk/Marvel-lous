@@ -41,7 +41,7 @@ extension DetailAPI: TargetType {
                                                        "apikey": KeyGenerator.getApiKey(),
                                                        "limit": limit,
                                                        "formatType": "comic",
-                                                       "dateRange": "2005-01-0," + KeyGenerator.getCurrentData(),
+                                                       "dateRange": "2005-01-01," + KeyGenerator.getCurrentData(),
                                                        "orderBy": "onsaleDate"], encoding: URLEncoding.queryString)
         }
     }
